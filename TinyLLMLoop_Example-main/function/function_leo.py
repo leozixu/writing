@@ -1,5 +1,4 @@
 import pdfplumber
-import fitz  # PyMuPDF
 import cv2
 import numpy as np
 import os
@@ -675,88 +674,6 @@ def find_caption_for_box_recursive(bbox, caption_boxes, initial_gap_factor=1.5, 
         else:
             gap_factor += step
     return matched
-
-def extract_figures_with_titles(pdf_path, output_folder, json_output,
-                                dpi=200, min_area=5000, max_area_ratio=0.4, max_gap_factor=1.5):
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-
-    pdf_doc = fitz.open(pdf_path)
-    results = []
-    prev_page_bottom_captions = []
-
-    for page_index in range(len(pdf_doc)):
-        page = pdf_doc[page_index]
-        pix = page.get_pixmap(matrix=fitz.Matrix(dpi / 72, dpi / 72))
-        img = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
-        gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-        _, thresh = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY_INV)
-        contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        boxes = [cv2.boundingRect(cnt) for cnt in contours if cv2.contourArea(cnt) > min_area]
-        merged_boxes = merge_boxes_with_distance(boxes, iou_threshold=0.2, distance_threshold=15)
-        page_area = img.shape[0] * img.shape[1]
-        filtered_boxes = [(x, y, w, h) for (x, y, w, h) in merged_boxes if w * h < max_area_ratio * page_area]
-
-        scale = dpi / 72.0
-        text_blocks = page.get_text("blocks")
-        caption_boxes = merge_text_blocks(text_blocks, scale)
-        caption_boxes_extended = prev_page_bottom_captions + caption_boxes
-
-        final_boxes = []
-        for (x, y, w, h) in filtered_boxes:
-            bx1, bx2 = 0, img.shape[1]
-            by1, by2 = y, y + h
-            matched_caption = find_caption_for_box_recursive((bx1, by1, bx2 - bx1, by2 - by1),
-                                                             caption_boxes_extended,
-                                                             initial_gap_factor=max_gap_factor)
-            caption_texts = []
-            if matched_caption:
-                ty0 = min(c[1] for c in matched_caption)
-                ty1 = max(c[3] for c in matched_caption)
-                caption_texts = [c[4] for c in matched_caption]
-                by1 = min(by1, ty0)
-                by2 = max(by2, ty1)
-            final_boxes.append((bx1, by1, bx2 - bx1, by2 - by1, " ".join(caption_texts)))
-
-        prev_page_bottom_captions = [c for c in caption_boxes if c[1] > img.shape[0]*0.7]
-
-        img_count = 0
-        for (x, y, w, h, caption_text) in final_boxes:
-            roi = img[y:y + h, x:x + w]
-            if roi.size == 0:
-                continue
-            img_filename = f"page_{page_index + 1}_fig_{img_count + 1}.png"
-            abs_img_path = os.path.join(output_folder, img_filename)
-            cv2.imwrite(abs_img_path, cv2.cvtColor(roi, cv2.COLOR_RGB2BGR))
-
-            # ✅ 使用用户指定 output_folder + 文件名，确保 /root/... 绝对路径
-            abs_img_path = os.path.join("pictures_final/", img_filename).replace("\\", "/")
-
-            fig_id, chapter, pure_caption = "", "", caption_text
-            m = re.match(r'^(图|表)\s*(\d+)(?:-(\d+))?\s*(.*)', caption_text)
-            if m:
-                prefix, ch, sec, rest = m.groups()
-                if sec:
-                    fig_id = f"Fig{ch}-{sec}"
-                else:
-                    fig_id = f"Fig{ch}"
-                chapter = f"第{ch}章"
-                pure_caption = rest.strip()
-
-            results.append({
-                "id": fig_id,
-                "caption": pure_caption,
-                "path": abs_img_path,  # Linux绝对路径
-                "chapter": chapter
-            })
-            img_count += 1
-
-    pdf_doc.close()
-
-    with open(json_output, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
-
-    print("提取完成（图片 + 标题 + JSON 保存）！")
 
 
 #统计文本字数
