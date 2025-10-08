@@ -1,0 +1,22 @@
+# cuda performance optimization
+log_level: "INFO"
+
+# LLM configuration for CUDA kernel optimization
+llm:
+  # primary_model: "gemini-2.5-flash-preview-05-20"
+  # primary_model: "deepseek-r1-250528"
+  primary_model: "deepseek-r1-250528"
+  secondary_model: "deepseek-r1-250528"
+
+  # primary_model_weight: 0.6
+  # secondary_model: "gemini-2.5-pro-preview-06-05"
+  # secondary_model: "deepseek-v3-241226"
+  # secondary_model_weight: 0.4
+  api_base: "https://ark.cn-beijing.volces.com/api/v3"
+  api_key: "d61217e7-8ff3-4937-83ed-3dd2bebf72ad"
+  temperature: 0.6
+  top_p: 0.95
+  max_tokens: 16000
+  timeout: 900
+
+

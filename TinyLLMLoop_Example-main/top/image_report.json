@@ -1,0 +1,436 @@
+[
+    {
+        "index": 0,
+        "name": "page9_img1",
+        "legend": "图 1-1  电源电压变化对频率和能效的影响",
+        "page": 9,
+        "path": "paper_test_images/page9_img1.png"
+    },
+    {
+        "index": 1,
+        "name": "page9_img2",
+        "legend": "图 1-2  不同电压下 SRAM  和反相器链的归一化延时",
+        "page": 9,
+        "path": "paper_test_images/page9_img2.png"
+    },
+    {
+        "index": 2,
+        "name": "page10_img1",
+        "legend": "图 1-3 SRAM  读操作的关键路径",
+        "page": 10,
+        "path": "paper_test_images/page10_img1.png"
+    },
+    {
+        "index": 3,
+        "name": "page11_img1",
+        "legend": "图 1-4 SRAM  读出延时的占比",
+        "page": 11,
+        "path": "paper_test_images/page11_img1.png"
+    },
+    {
+        "index": 4,
+        "name": "page11_img2",
+        "legend": "图 1-5  存储阵列中的木桶效应",
+        "page": 11,
+        "path": "paper_test_images/page11_img2.png"
+    },
+    {
+        "index": 5,
+        "name": "page12_img1",
+        "legend": "图 1-6 0.5V  和 0.9V  条件下存储单元放电延时的统计分布",
+        "page": 12,
+        "path": "paper_test_images/page12_img1.png"
+    },
+    {
+        "index": 6,
+        "name": "page13_img1",
+        "legend": "图 1-7  论文的组织结构 5",
+        "page": 13,
+        "path": "paper_test_images/page13_img1.png"
+    },
+    {
+        "index": 7,
+        "name": "page15_img1",
+        "legend": "图 2-1 SRAM  的整体结构",
+        "page": 15,
+        "path": "paper_test_images/page15_img1.png"
+    },
+    {
+        "index": 8,
+        "name": "page16_img1",
+        "legend": "图 2-2 SRAM  六管存储单元结构",
+        "page": 16,
+        "path": "paper_test_images/page16_img1.png"
+    },
+    {
+        "index": 9,
+        "name": "page17_img1",
+        "legend": "图 2-3  读写分离的八管 SRAM  存储单元",
+        "page": 17,
+        "path": "paper_test_images/page17_img1.png"
+    },
+    {
+        "index": 10,
+        "name": "page18_img1",
+        "legend": "图 2-4  时序推测技术在数字逻辑电路中的应用",
+        "page": 18,
+        "path": "paper_test_images/page18_img1.png"
+    },
+    {
+        "index": 11,
+        "name": "page18_img2",
+        "legend": "图 2-5  时序推测型 SRAM  的电路结构及读操作波形",
+        "page": 18,
+        "path": "paper_test_images/page18_img2.png"
+    },
+    {
+        "index": 12,
+        "name": "page19_img1",
+        "legend": "图 2-6  时序推测型 SRAM  的电路结构",
+        "page": 19,
+        "path": "paper_test_images/page19_img1.png"
+    },
+    {
+        "index": 13,
+        "name": "page19_img2",
+        "legend": "图 2-7  时序推测型 SRAM  的读出方式",
+        "page": 19,
+        "path": "paper_test_images/page19_img2.png"
+    },
+    {
+        "index": 14,
+        "name": "page20_img1",
+        "legend": "图 2-8  推测型读出的波形示意图",
+        "page": 20,
+        "path": "paper_test_images/page20_img1.png"
+    },
+    {
+        "index": 15,
+        "name": "page20_img2",
+        "legend": "图 2-9 SoC  系统中的关键路径",
+        "page": 20,
+        "path": "paper_test_images/page20_img2.png"
+    },
+    {
+        "index": 16,
+        "name": "page21_img1",
+        "legend": "图 2-10  组合逻辑占主导地位的关键路径的读操作示意图",
+        "page": 21,
+        "path": "paper_test_images/page21_img1.png"
+    },
+    {
+        "index": 17,
+        "name": "page21_img2",
+        "legend": "图 2-11 SRAM  占主导地位的关键路径的读操作示意图",
+        "page": 21,
+        "path": "paper_test_images/page21_img2.png"
+    },
+    {
+        "index": 18,
+        "name": "page23_img1",
+        "legend": "图 3-1  本文的时序推测方案的设计思路",
+        "page": 23,
+        "path": "paper_test_images/page23_img1.png"
+    },
+    {
+        "index": 19,
+        "name": "page24_img1",
+        "legend": "图 3-2  高阻输入电压型灵敏放大器",
+        "page": 24,
+        "path": "paper_test_images/page24_img1.png"
+    },
+    {
+        "index": 20,
+        "name": "page25_img1",
+        "legend": "图 3-3  检错原理",
+        "page": 25,
+        "path": "paper_test_images/page25_img1.png"
+    },
+    {
+        "index": 21,
+        "name": "page25_img2",
+        "legend": "图 3-4  灵敏放大器的输入电压的摆幅分布",
+        "page": 25,
+        "path": "paper_test_images/page25_img2.png"
+    },
+    {
+        "index": 22,
+        "name": "page27_img1",
+        "legend": "图 3-5  时序推测型存储阵列的整体结构",
+        "page": 27,
+        "path": "paper_test_images/page27_img1.png"
+    },
+    {
+        "index": 23,
+        "name": "page27_img2",
+        "legend": "图 3-6  电压型灵敏放大器",
+        "page": 27,
+        "path": "paper_test_images/page27_img2.png"
+    },
+    {
+        "index": 24,
+        "name": "page28_img1",
+        "legend": "图 3-7  解耦型灵敏放大器中的泄漏电流",
+        "page": 28,
+        "path": "paper_test_images/page28_img1.png"
+    },
+    {
+        "index": 25,
+        "name": "page28_img2",
+        "legend": "图 3-8 PMOS  切换开关",
+        "page": 28,
+        "path": "paper_test_images/page28_img2.png"
+    },
+    {
+        "index": 26,
+        "name": "page29_img1",
+        "legend": "图 3-9  静态锁存器和动态锁存器",
+        "page": 29,
+        "path": "paper_test_images/page29_img1.png"
+    },
+    {
+        "index": 27,
+        "name": "page30_img1",
+        "legend": "图 3-10  带漏电补偿晶体管的锁存器",
+        "page": 30,
+        "path": "paper_test_images/page30_img1.png"
+    },
+    {
+        "index": 28,
+        "name": "page31_img1",
+        "legend": "图 3-12  电路实现",
+        "page": 31,
+        "path": "paper_test_images/page31_img1.png"
+    },
+    {
+        "index": 29,
+        "name": "page31_img2",
+        "legend": "图 3-13  总线检测的电路实现",
+        "page": 31,
+        "path": "paper_test_images/page31_img2.png"
+    },
+    {
+        "index": 30,
+        "name": "page32_img1",
+        "legend": "图 3-14  总线检测单元中的泄漏电流",
+        "page": 32,
+        "path": "paper_test_images/page32_img1.png"
+    },
+    {
+        "index": 31,
+        "name": "page33_img1",
+        "legend": "图 3-16  一个周期读",
+        "page": 33,
+        "path": "paper_test_images/page33_img1.png"
+    },
+    {
+        "index": 32,
+        "name": "page34_img1",
+        "legend": "图 3-17  多个时钟周期读",
+        "page": 34,
+        "path": "paper_test_images/page34_img1.png"
+    },
+    {
+        "index": 33,
+        "name": "page34_img2",
+        "legend": "图 3-18  位线与高阻型灵敏放大器间的栅极泄漏电流 26",
+        "page": 34,
+        "path": "paper_test_images/page34_img2.png"
+    },
+    {
+        "index": 34,
+        "name": "page35_img1",
+        "legend": "图 3-19  存储单元的泄漏电流",
+        "page": 35,
+        "path": "paper_test_images/page35_img1.png"
+    },
+    {
+        "index": 35,
+        "name": "page36_img1",
+        "legend": "图 3-21  开关切换过程中的串扰现象",
+        "page": 36,
+        "path": "paper_test_images/page36_img1.png"
+    },
+    {
+        "index": 36,
+        "name": "page36_img2",
+        "legend": "图 3-22  开关切换过程中的电荷共享",
+        "page": 36,
+        "path": "paper_test_images/page36_img2.png"
+    },
+    {
+        "index": 37,
+        "name": "page37_img1",
+        "legend": "图 3-23  电荷共享对检测方案的影响",
+        "page": 37,
+        "path": "paper_test_images/page37_img1.png"
+    },
+    {
+        "index": 38,
+        "name": "page38_img1",
+        "legend": "图 3-24 HSPICE-MATLAB  混合仿真流程",
+        "page": 38,
+        "path": "paper_test_images/page38_img1.png"
+    },
+    {
+        "index": 39,
+        "name": "page40_img1",
+        "legend": "图 3-25 HSPICE-MATLAB  混合仿真与 HSPICE  仿真的对比",
+        "page": 40,
+        "path": "paper_test_images/page40_img1.png"
+    },
+    {
+        "index": 40,
+        "name": "page40_img2",
+        "legend": "图 3-26  本文的时序推测方案在不同电压下的最大收益",
+        "page": 40,
+        "path": "paper_test_images/page40_img2.png"
+    },
+    {
+        "index": 41,
+        "name": "page41_img1",
+        "legend": "图 3-27  不同电压下推测型读出正确的概率",
+        "page": 41,
+        "path": "paper_test_images/page41_img1.png"
+    },
+    {
+        "index": 42,
+        "name": "page41_img2",
+        "legend": "图 3-28  时序推测方案在不同电压下的误判率",
+        "page": 41,
+        "path": "paper_test_images/page41_img2.png"
+    },
+    {
+        "index": 43,
+        "name": "page42_img1",
+        "legend": "图 3-29  存储阵列的深度对收益的影响",
+        "page": 42,
+        "path": "paper_test_images/page42_img1.png"
+    },
+    {
+        "index": 44,
+        "name": "page42_img2",
+        "legend": "图 3-30  存储阵列宽度对收益的影响",
+        "page": 42,
+        "path": "paper_test_images/page42_img2.png"
+    },
+    {
+        "index": 45,
+        "name": "page45_img1",
+        "legend": "图 4-1 SRAM  的整体结构",
+        "page": 45,
+        "path": "paper_test_images/page45_img1.png"
+    },
+    {
+        "index": 46,
+        "name": "page46_img1",
+        "legend": "图 4-2  时序推测型存储阵列的设计",
+        "page": 46,
+        "path": "paper_test_images/page46_img1.png"
+    },
+    {
+        "index": 47,
+        "name": "page46_img2",
+        "legend": "图 4-3  字线电压调节模块",
+        "page": 46,
+        "path": "paper_test_images/page46_img2.png"
+    },
+    {
+        "index": 48,
+        "name": "page47_img1",
+        "legend": "图 4-4  锁存器及输入驱动器",
+        "page": 47,
+        "path": "paper_test_images/page47_img1.png"
+    },
+    {
+        "index": 49,
+        "name": "page47_img2",
+        "legend": "图 4-5  译码器的设计",
+        "page": 47,
+        "path": "paper_test_images/page47_img2.png"
+    },
+    {
+        "index": 50,
+        "name": "page48_img1",
+        "legend": "图 4-7  数字化复制位线技术",
+        "page": 48,
+        "path": "paper_test_images/page48_img1.png"
+    },
+    {
+        "index": 51,
+        "name": "page49_img1",
+        "legend": "图 4-9 SRAM  六管单元版图",
+        "page": 49,
+        "path": "paper_test_images/page49_img1.png"
+    },
+    {
+        "index": 52,
+        "name": "page50_img1",
+        "legend": "图 4-10  测试系统的设计",
+        "page": 50,
+        "path": "paper_test_images/page50_img1.png"
+    },
+    {
+        "index": 53,
+        "name": "page50_img2",
+        "legend": "图 4-11  低电压区间的稳定性良率仿真结果",
+        "page": 50,
+        "path": "paper_test_images/page50_img2.png"
+    },
+    {
+        "index": 54,
+        "name": "page52_img1",
+        "legend": "图 4-15  不同电压下反相器链、传统 SRAM  和时序推测型 SRAM  的归一化延时",
+        "page": 52,
+        "path": "paper_test_images/page52_img1.png"
+    },
+    {
+        "index": 55,
+        "name": "page53_img1",
+        "legend": "图 4-16  不同时序推测方案的读出波形",
+        "page": 53,
+        "path": "paper_test_images/page53_img1.png"
+    },
+    {
+        "index": 56,
+        "name": "page55_img1",
+        "legend": "图 4-18 T ARRAY  对比",
+        "page": 55,
+        "path": "paper_test_images/page55_img1.png"
+    },
+    {
+        "index": 57,
+        "name": "page55_img2",
+        "legend": "图 4-19 T ERROR  对比",
+        "page": 55,
+        "path": "paper_test_images/page55_img2.png"
+    },
+    {
+        "index": 58,
+        "name": "page56_img1",
+        "legend": "图 4-20  能耗对比",
+        "page": 56,
+        "path": "paper_test_images/page56_img1.png"
+    },
+    {
+        "index": 59,
+        "name": "page57_img1",
+        "legend": "图 4-22  不同时序推测方案的面积对比",
+        "page": 57,
+        "path": "paper_test_images/page57_img1.png"
+    },
+    {
+        "index": 60,
+        "name": "page58_img1",
+        "legend": "图 4-23  时序推测系统的关键路径",
+        "page": 58,
+        "path": "paper_test_images/page58_img1.png"
+    },
+    {
+        "index": 61,
+        "name": "page59_img1",
+        "legend": "图 4-24  时序推测系统的最大吞吐率收益对比",
+        "page": 59,
+        "path": "paper_test_images/page59_img1.png"
+    }
+]

@@ -1,0 +1,64 @@
+{
+  "start_patterns": {
+    "description": "匹配正文开头模式",
+    "pattern": [
+      "^\\s*1[\\s\\.]",
+      "^第一章",
+      "^引言",
+      "^\\s*Chapter\\s+1",
+      "^\\s*1\\s+Introduction",
+      "^\\s*Introduction",
+      "^\\s*Preface"
+    ]
+    },
+  "image_legend":{
+    "description":"图例匹配模式",
+    "pattern": "^(Figure|Fig\\.?|图)\\s*\\d+(?:[.-]\\d+)*[\\.:：]*|^(图)\\s*\\d+(?:[.-]\\d+)*[\\.:：]*"
+  },
+  "table_legend": {
+    "description": "表例匹配模式",
+    "pattern": "^(Table|表)\\s*\\d+\\s*[.:：\\-–]"
+  },
+  "page_num": {
+    "description": "页码正则模式",
+    "pattern": [
+      "^\\d{1,4}$",
+      "^第\\s*\\d{1,4}\\s*页$",
+      "^(Page|P\\.?)\\s*\\d{1,4}$",
+      "^M{0,4}(CM|CD|D?C{0,3})",
+      "(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
+    ]
+  },
+  "check_num_pattern": {
+      "description": "提取标题编号模式",
+      "pattern": "^(\\d+(?:[\\.\\-\\s]\\d+)*)"
+  },
+  "toc_pattern": {
+    "description": "识别正文中的目录页",
+    "pattern": "^(.*?)(\\.{2,}|\\s{2,}|\\.+\\s?)(\\d{1,4})$"
+  },
+  "title_num": {
+    "description": "标题编号匹配模式",
+    "pattern": "^\\d+([.-]\\d+)*$|^[IVXLCDM]+$"
+  },
+  "lastline_num": {
+    "description": "文末残留编号",
+    "pattern": "^\\s*\\d+(?:\\.\\d+)*\\s*$"
+  },
+  "header_footer": {
+    "description": "页眉页脚正则模式",
+    "pattern": [
+      "(第.{1,5}章|节|Chapter|Section|Copyright|版权所有)",
+      "^\\d+(\\.\\d+)*\\.?\\s+[A-Z][A-Z0-9\\s\\-]*$",
+      "^[A-Z].*[0-9]$"
+    ]
+  },
+  "exempt_page_num": {
+    "description": "豁免正文页码匹配模式",
+    "pattern": [
+      "\\d+",
+      "(?i)(M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3}))",
+      "\\d+(\\s*[.-]\\s*\\d+)*"
+    ]
+  }
+}
