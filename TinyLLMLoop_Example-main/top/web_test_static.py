@@ -224,4 +224,5 @@ async def main():
 
 
 if __name__ == "__main__":
-    start_server(main, port=8080, debug=True)
+    start_server(main, host='0.0.0.0', port=8080, debug=False)
+    #start_server(main, port=8080, debug=True)
