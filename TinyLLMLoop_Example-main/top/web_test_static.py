@@ -81,7 +81,8 @@ async def main():
 
     # 启动静态文件服务器
     STATIC_PORT = 8000
-    static_host = f"http://localhost:{STATIC_PORT}"
+    static_host = f"http://47.110.83.157:{STATIC_PORT}"
+    #static_host = f"http://localhost:{STATIC_PORT}"
     start_static_server(directory='top', port=STATIC_PORT)
 
     #0.3 从PDF内提取章节页码信息
