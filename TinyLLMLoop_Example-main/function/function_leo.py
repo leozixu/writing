@@ -6,6 +6,7 @@ import re
 import json
 from pathlib import Path #用于拼接md文件
 from PyPDF2 import PdfReader
+import pymupdf
 
 def page_ranges_from_list(pages):
     """把页码列表合并成连续区间"""
@@ -43,7 +44,7 @@ def chinese_char_ratio(text):
     return chinese / total if total > 0 else 0.0
 
 # def extract_pdf_info(pdf_path):
-#     doc = fitz.open(pdf_path)
+#     doc = pymupdf.open(pdf_path)
 #     page_texts = [doc[p].get_text("text") or "" for p in range(doc.page_count)]
 #     total_pages = doc.page_count
 #
@@ -144,7 +145,7 @@ def chinese_char_ratio(text):
 #
 #     return {"chapters": merge_sections(sections, total_pages)}
 def extract_pdf_info(pdf_path):
-    doc = fitz.open(pdf_path)
+    doc = pymupdf.open(pdf_path)
     page_texts = [doc[p].get_text("text") or "" for p in range(doc.page_count)]
     total_pages = doc.page_count
 
