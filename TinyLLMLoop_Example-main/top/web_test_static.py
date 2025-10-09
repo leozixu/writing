@@ -57,6 +57,12 @@ from functools import partial
 import re
 import urllib.parse
 
+
+# 启动静态文件服务器
+STATIC_PORT = 8000
+static_host = f"http://47.110.83.157:{STATIC_PORT}"
+#static_host = f"http://localhost:{STATIC_PORT}"
+start_static_server(directory='top', port=STATIC_PORT)
 # ========== Web 界面 ==========
 async def main():
     put_text("📄 论文生成网站（PyWebIO 示例）")
@@ -79,11 +85,7 @@ async def main():
     with open("./top/image_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=4)
 
-    # 启动静态文件服务器
-    STATIC_PORT = 8000
-    static_host = f"http://47.110.83.157:{STATIC_PORT}"
-    #static_host = f"http://localhost:{STATIC_PORT}"
-    start_static_server(directory='top', port=STATIC_PORT)
+
 
     #0.3 从PDF内提取章节页码信息
     pdfinfo1 = function_leo.extract_pdf_info("top/paper_test.pdf")
