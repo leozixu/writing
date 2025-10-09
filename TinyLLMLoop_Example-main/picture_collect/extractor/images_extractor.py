@@ -1,4 +1,4 @@
-import fitz
+import pymupdf
 import json
 import logging
 import os
@@ -99,7 +99,7 @@ class ImageExtractor:
 		return any(re.search(p, line, re.IGNORECASE) for p in patterns)
 	
 	def _extract_pdf_textblocks(self, pdf_path: str, wtr_thd: float = 0.9, hf_thd: float = 0.8, cluster_thd=5):
-		doc = fitz.open(pdf_path)
+		doc = pymupdf.open(pdf_path)
 		
 		# ----------- 结果容器 -----------
 		watermark_dict = defaultdict(list)
@@ -193,7 +193,7 @@ class ImageExtractor:
 					y0 = min(blk[1] for blk in cluster)
 					x1 = max(blk[2] for blk in cluster)
 					y1 = max(blk[3] for blk in cluster)
-					cluster_rect = fitz.Rect(x0, y0, x1, y1)
+					cluster_rect = pymupdf.Rect(x0, y0, x1, y1)
 					image_legend_dict[page_num].append({
 						"rect": cluster_rect,
 						"text": cluster_text
@@ -216,7 +216,7 @@ class ImageExtractor:
 						y0 = min(blk[1] for blk in cluster)
 						x1 = max(blk[2] for blk in cluster)
 						y1 = max(blk[3] for blk in cluster)
-						cluster_rect = fitz.Rect(x0, y0, x1, y1)
+						cluster_rect = pymupdf.Rect(x0, y0, x1, y1)
 						table_legend_dict[page_num].append({
 							"rect": cluster_rect,
 							"text": cluster_text
@@ -224,7 +224,7 @@ class ImageExtractor:
 					else:
 						# 宽度小于等于 300，直接放进 table_legend_dict
 						table_legend_dict[page_num].append({
-							"rect": fitz.Rect(x0, y0, x1, y1),
+							"rect": pymupdf.Rect(x0, y0, x1, y1),
 							"text": text_clean
 						})
 				else:
@@ -247,11 +247,11 @@ class ImageExtractor:
 	
 	def _collect_all_drawings(self, pdf_path):
 		"""收集所有页的矢量图位置"""
-		doc = fitz.open(pdf_path)
+		doc = pymupdf.open(pdf_path)
 		rect_positions = []
 		for page_num, page in enumerate(doc, start=1):
 			for d in page.get_drawings():
-				rect = fitz.Rect(d["rect"])
+				rect = pymupdf.Rect(d["rect"])
 				rect_positions.append(self._normalize_rect(rect))
 		doc.close()
 		return rect_positions
@@ -261,7 +261,7 @@ class ImageExtractor:
 		收集PDF中所有位图的矩形区域（bbox），用于重复性检测
 		:return：list[tuple]，每个元素是标准化后的矩形 (x0,y0,x1,y1)
 		"""
-		doc = fitz.open(pdf_path)
+		doc = pymupdf.open(pdf_path)
 		all_imgs = []
 		
 		for page in doc:
@@ -575,12 +575,12 @@ class ImageExtractor:
 			# --- 空间判断 ---
 			# 如果提供了表格 bbox，就检查空间重合
 			if tables_info is not None:
-				group_rect = fitz.Rect(x0, y0, x1, y1)
+				group_rect = pymupdf.Rect(x0, y0, x1, y1)
 				group_edges = self._rect_edges(group_rect)
 				
 				# 遍历该页所有表格
 				for table_bbox in tables_info.get(page_num, []):
-					table_rect = fitz.Rect(table_bbox)
+					table_rect = pymupdf.Rect(table_bbox)
 					table_edges = self._rect_edges(table_rect)
 					
 					# 判断是否有 >=3 条边重合
@@ -606,7 +606,7 @@ class ImageExtractor:
 		os.makedirs(images_dir, exist_ok=True)
 		
 		# 打开文件
-		doc = fitz.open(pdf_path)
+		doc = pymupdf.open(pdf_path)
 		total_pages = len(doc)
 		image_groups_count = 0
 		report = []  # 报告格式
@@ -645,7 +645,7 @@ class ImageExtractor:
 			for b, block in enumerate(self.normal_dict.get(page_num, []), start=0):
 				x0, y0, x1, y1, text, angle = block  # 解包
 				# valid_blocks += 1
-				rect = fitz.Rect(x0, y0, x1, y1)
+				rect = pymupdf.Rect(x0, y0, x1, y1)
 				rects_dict.append({
 					"type": "text_block",
 					"rect": rect,
@@ -674,7 +674,7 @@ class ImageExtractor:
 			
 			# 4.2.1逐个矢量对象
 			for d in page.get_drawings():
-				rect = fitz.Rect(d["rect"])
+				rect = pymupdf.Rect(d["rect"])
 				if self._normalize_rect(rect) in common_rects:
 					continue
 				rects_dict.append({
@@ -697,7 +697,7 @@ class ImageExtractor:
 					y0 = min(r["rect"].y0 for r in group)
 					x1 = max(r["rect"].x1 for r in group)
 					y1 = max(r["rect"].y1 for r in group)
-					group_rect = fitz.Rect(x0, y0, x1, y1)
+					group_rect = pymupdf.Rect(x0, y0, x1, y1)
 					items.append((group_rect, "group"))
 			
 			items.sort(key=lambda x: x[0].y0)  # 排序操作
