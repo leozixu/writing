@@ -75,7 +75,7 @@ async def main():
     first_pdf_path = os.path.join(save_dir, "paper_test.pdf")
     with open(first_pdf_path, 'wb') as f:
         f.write(first_pdf['content'])
-    put_text(f"✅ 参考论文 {first_pdf['filename']} 上传成功")
+    put_text(f"✅ 参考论文 {first_pdf['filename']} 上传成功,正在操作,请稍等......")
 
     #0.2 从PDF中提取图片信息
     input_path_picture = "./top/paper_test.pdf"
@@ -126,7 +126,7 @@ async def main():
 
     #0.4 生成提纲
     put_text("正在生成提纲，请稍候...")
-    #await top.outline_generator.main() #运行提纲生成函数
+    await top.outline_generator.main() #运行提纲生成函数
 
 
     # 提供下载给用户修改
