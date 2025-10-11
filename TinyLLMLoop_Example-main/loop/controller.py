@@ -104,7 +104,9 @@ class tinyLLMLoop:
         pdf_path_ref = "TinyLLMLoop_Example-main/top/paper_test.pdf"
         ref_page_start = pdf_info_json["chapters"][first_number_chapter + 1]["start_page"]
         ref_page_end = pdf_info_json["chapters"][first_number_chapter + 1]["end_page"]
+        print(f"ref_page_start : {ref_page_start} , ref_page_end : {ref_page_end}")
         text_ref = function_leo.extract_text_from_pdf(pdf_path_ref, pages=(ref_page_start - 1, ref_page_end))
+
 
 
         writing_guidance = self.writing_points  #提取写作要点
