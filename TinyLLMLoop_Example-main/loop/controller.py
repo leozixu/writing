@@ -98,6 +98,7 @@ class tinyLLMLoop:
 
 
         pdf_info_path = "TinyLLMLoop_Example-main/top/pdf_info.json"
+        print("whether to find pdf_info_path......")
         with open(pdf_info_path, "r", encoding="utf-8") as f:
             pdf_info_json = json.load(f)
         print(f"pdf_info : {pdf_info_json}")
