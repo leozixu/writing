@@ -23,6 +23,9 @@ import urllib.parse
 import zipfile
 import io
 
+import importlib
+import top.outline_generator
+
 # 启动静态文件服务器
 def start_static_server(directory='top', port=8000):
     handler = partial(http.server.SimpleHTTPRequestHandler, directory=directory)
@@ -126,6 +129,7 @@ async def main():
 
     #0.4 生成提纲
     put_text("正在生成提纲，请稍候...")
+    importlib.reload(top.outline_generator)
     await top.outline_generator.main() #运行提纲生成函数
 
 
