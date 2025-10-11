@@ -188,6 +188,7 @@ async def main():
     # 3. 调用黑盒处理程序（生成文件）
     put_text("正在生成成品论文，可能需要较长时间,请稍候...")
     print("111111")
+    importlib.reload(top.test_syntax)
     await top.test_syntax.concurrent_test() #运行扩写函数
     print("222222")
     function_leo.convert_outline("top/outline.json","top/outline.json")
