@@ -39,10 +39,13 @@ class tinyLLMLoop:
         images_json: list = None,
     ):
 
-        config_file = f"./{tag_path}/config.yaml"
-        prompt_file = f"{tag_path}.prompt"
-        evaluate_file = f"{tag_path}.evaluate"
-
+        # config_file = f"./{tag_path}/config.yaml"
+        # prompt_file = f"{tag_path}.prompt"
+        # evaluate_file = f"{tag_path}.evaluate"
+        config_file = f"TinyLLMLoop_Example-main/{tag_path}/config.yaml"
+        prompt_file = f"TinyLLMLoop_Example-main/{tag_path}.prompt"
+        evaluate_file = f"TinyLLMLoop_Example-main/{tag_path}.evaluate"
+        
         self.tag_path = tag_path
         self.config = load_config(config_file)
         self.llm_ensemble = LLMEnsemble(self.config.llm.models)
@@ -85,7 +88,7 @@ class tinyLLMLoop:
     async def run(self):
         ## initially copy input dict
         cur_loop = 0
-        loop_begin_dict = f"./{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_begin_.json"
+        loop_begin_dict = f"TinyLLMLoop_Example-main/{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_begin_.json"
         os.makedirs(os.path.dirname(loop_begin_dict), exist_ok = True)
         with open(self._input_filename, "r", encoding="utf-8") as f:
             object_dict_ = json.load(f)#######################
@@ -94,7 +97,7 @@ class tinyLLMLoop:
 
 
 
-        pdf_info_path = "top/pdf_info.json"
+        pdf_info_path = "TinyLLMLoop_Example-main/top/pdf_info.json"
         with open(pdf_info_path, "r", encoding="utf-8") as f:
             pdf_info_json = json.load(f)
         first_number_chapter = int(self.section_number.split(".")[0]) #提取章节数
@@ -110,8 +113,8 @@ class tinyLLMLoop:
         while cur_loop < self.max_loop_times:
             if writing_guidance_length <= 2:
                 break
-            evaluate_res_dict = f"./{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_evaluate_.json"
-            prompt_res_dict = f"./{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_prompt_.json"
+            evaluate_res_dict = f"TinyLLMLoop_Example-main/{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_evaluate_.json"
+            prompt_res_dict = f"TinyLLMLoop_Example-main/{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_prompt_.json"
 
             ## run evaluate.py
             return_code, process = await self._run_subprocess(
@@ -124,7 +127,7 @@ class tinyLLMLoop:
             ## check evaluation result
             with open(evaluate_res_dict, "r") as f:
                 evaluate_result = json.load(f)
-            json_path = "./top/outline.json"
+            json_path = "TinyLLMLoop_Example-main/top/outline.json"
             if evaluate_result["pass"] == True:
                 # with open(file_path_final_md, "w", encoding="utf-8") as f:
                 #     f.write(evaluate_result["cur_kernel"])\
@@ -215,7 +218,7 @@ class tinyLLMLoop:
 
             
             cur_loop += 1
-            loop_begin_dict = f"./{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_begin_.json"
+            loop_begin_dict = f"TinyLLMLoop_Example-main/{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_begin_.json"
             with open(loop_begin_dict, "w", encoding='utf-8') as f:##########################
                 json.dump(object_dict_, f,ensure_ascii=False) #####################
 
