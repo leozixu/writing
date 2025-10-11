@@ -130,7 +130,7 @@ async def main():
     #0.4 生成提纲
     put_text("正在生成提纲，请稍候...")
     importlib.reload(top.outline_generator)
-    await top.outline_generator.main() #运行提纲生成函数
+    #await top.outline_generator.main() #运行提纲生成函数
 
 
     # 提供下载给用户修改
