@@ -49,7 +49,7 @@ async def concurrent_test(concurrence : int = 10, progress_callback=None):
     name_tag0 = "TAG_cuda_syntax"
     name_tag1 = "TAG_enlarge"
     # 示例使用
-    pdf_path = "/root/PythonProject7_outline/TinyLLMLoop_Example-main/top/paper_test.pdf"
+    pdf_path = "top/paper_test.pdf"
     text = function_leo.extract_text_from_pdf(pdf_path,pages=(0,8))
 
     md_initial_path = "top/Outline_initial.md"
