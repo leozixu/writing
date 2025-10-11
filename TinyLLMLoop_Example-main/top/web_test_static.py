@@ -98,7 +98,7 @@ async def main():
 
 
     # 显示可编辑 JSON
-    put_markdown("### 📄 自动提取的 PDF 信息 (在下面编辑并点击提交以确认)")
+    put_markdown("### 📄 自动提取的 PDF 信息 用于确认页码是否正确 此页非提纲 下一步才生成提纲")
     new_text = await textarea(
         "pdf_info_editor",
         value=json.dumps(pdfinfo1, ensure_ascii=False, indent=4),
@@ -182,9 +182,9 @@ async def main():
 
 
     # 3. 调用黑盒处理程序（生成文件）
-    put_text("正在生成成品论文，请稍候...")
+    put_text("正在生成成品论文，可能需要较长时间,请稍候...")
     print("111111")
-    #await top.test_syntax.concurrent_test() #运行扩写函数
+    await top.test_syntax.concurrent_test() #运行扩写函数
     print("222222")
     function_leo.convert_outline("top/outline.json","top/outline.json")
 
