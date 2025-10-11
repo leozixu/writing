@@ -98,7 +98,7 @@ class tinyLLMLoop:
         with open(pdf_info_path, "r", encoding="utf-8") as f:
             pdf_info_json = json.load(f)
         first_number_chapter = int(self.section_number.split(".")[0]) #提取章节数
-        pdf_path_ref = "/root/PythonProject7_outline/TinyLLMLoop_Example-main/top/paper_test.pdf"
+        pdf_path_ref = "TinyLLMLoop_Example-main/top/paper_test.pdf"
         ref_page_start = pdf_info_json["chapters"][first_number_chapter + 1]["start_page"]
         ref_page_end = pdf_info_json["chapters"][first_number_chapter + 1]["end_page"]
         text_ref = function_leo.extract_text_from_pdf(pdf_path_ref, pages=(ref_page_start - 1, ref_page_end))
