@@ -83,10 +83,10 @@ async def main():
     #0.2 从PDF中提取图片信息
     input_path_picture = "./top/paper_test.pdf"
     output_path_picture = "./top"
-    extractor = images_extractor.ImageExtractor()
-    report = extractor.mixed_process(input_path_picture, output_path_picture)
-    with open("./top/image_report.json", "w", encoding="utf-8") as f:
-        json.dump(report, f, ensure_ascii=False, indent=4)
+    # extractor = images_extractor.ImageExtractor()
+    # report = extractor.mixed_process(input_path_picture, output_path_picture)
+    # with open("./top/image_report.json", "w", encoding="utf-8") as f:
+    #     json.dump(report, f, ensure_ascii=False, indent=4)
 
 
 
