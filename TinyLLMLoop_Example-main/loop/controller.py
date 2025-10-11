@@ -100,6 +100,7 @@ class tinyLLMLoop:
         pdf_info_path = "TinyLLMLoop_Example-main/top/pdf_info.json"
         with open(pdf_info_path, "r", encoding="utf-8") as f:
             pdf_info_json = json.load(f)
+        print(f"pdf_info : {pdf_info_json}")
         first_number_chapter = int(self.section_number.split(".")[0]) #提取章节数
         pdf_path_ref = "TinyLLMLoop_Example-main/top/paper_test.pdf"
         ref_page_start = pdf_info_json["chapters"][first_number_chapter + 1]["start_page"]
