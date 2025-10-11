@@ -27,11 +27,15 @@ async def evaluate(
     async_stamp: str,
 ) -> dict:
 
-    config_file = f"./{dir_name}/config.yaml"
+    #config_file = f"./{dir_name}/config.yaml"
+    config_file = f"TinyLLMLoop_Example-main/{dir_name}/config.yaml"
+    
     config = load_config(config_file)
     llm_ensemble = LLMEnsemble(config.llm.models)
 
-    file_path = f"./{dir_name}/results-{async_stamp}/loop-{cur_loop}_begin_.json" #要处理的文本路径
+    #file_path = f"./{dir_name}/results-{async_stamp}/loop-{cur_loop}_begin_.json" #要处理的文本路径
+    file_path = f"TinyLLMLoop_Example-main/{dir_name}/results-{async_stamp}/loop-{cur_loop}_begin_.json" #要处理的文本路径
+    
     with open(file_path, "r", encoding="utf-8") as f:
         object_dict_ = json.load(f)
     response_text = object_dict_["response"]
@@ -74,7 +78,9 @@ async def evaluate(
     #print(response_comments)
 
     new_kernel = response_text
-    file_path = f"./{dir_name}/results-{async_stamp}/loop-{cur_loop}result.md"
+    #file_path = f"./{dir_name}/results-{async_stamp}/loop-{cur_loop}result.md"
+    file_path = f"TinyLLMLoop_Example-main/{dir_name}/results-{async_stamp}/loop-{cur_loop}result.md"
+    
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(new_kernel)
 
@@ -109,5 +115,5 @@ async def evaluate(
 if __name__ == "__main__":
     dir_name, cur_loop, async_stamp = get_eva_inputs()
     result = asyncio.run(evaluate(dir_name, cur_loop, async_stamp))
-    with open(f"./{dir_name}/results-{async_stamp}/loop-{cur_loop}_evaluate_.json", "w") as f:
+    with open(f"TinyLLMLoop_Example-main/{dir_name}/results-{async_stamp}/loop-{cur_loop}_evaluate_.json", "w") as f:
         json.dump(result, f)
