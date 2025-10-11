@@ -13,8 +13,20 @@ with open(pdf_info_path, "r", encoding="utf-8") as f:
 
 abstract_page_start = pdf_info_json["chapters"][0]["start_page"]
 abstract_page_end = pdf_info_json["chapters"][0]["end_page"]
-contents_page_start = pdf_info_json["chapters"][1]["start_page"]
-contents_page_end = pdf_info_json["chapters"][1]["end_page"]
+
+if len(pdf_info_json.get("chapters", [])) > 1:
+    contents_page_start = pdf_info_json["chapters"][1]["start_page"]
+else:
+    contents_page_start = None
+    print("Warning: PDF chapters insufficient, skipping contents page detection.")
+#contents_page_start = pdf_info_json["chapters"][1]["start_page"]
+#contents_page_end = pdf_info_json["chapters"][1]["end_page"]
+if len(pdf_info_json.get("chapters", [])) > 1:
+    contents_page_end = pdf_info_json["chapters"][1]["end_page"]
+else:
+    contents_page_end = None
+    print("Warning: PDF chapters insufficient, skipping contents page detection.")
+
 
 text_ref_abstract = function_leo.extract_text_from_pdf(pdf_path, pages=(abstract_page_start - 1, abstract_page_end))  # 摘要
 text_ref_contents = function_leo.extract_text_from_pdf(pdf_path, pages=(contents_page_start - 1, contents_page_end))  # 目录
