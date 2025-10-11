@@ -87,7 +87,7 @@ class tinyLLMLoop:
 
     async def run(self):
         ## initially copy input dict
-        print("staaaaaaaaaaaaaaaaaaaart")
+        print("staaaaaaaaaaaaaaaaaaaart loop run")
         cur_loop = 0
         loop_begin_dict = f"TinyLLMLoop_Example-main/{self.tag_path}/results-{self.async_stamp}/loop-{cur_loop}_begin_.json"
         os.makedirs(os.path.dirname(loop_begin_dict), exist_ok = True)
